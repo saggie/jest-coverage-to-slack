@@ -1,0 +1,11 @@
+{
+  "name": "jest-coverage-to-slack",
+  "private": true,
+  "scripts": {
+    "test": "jest",
+    "test:coverage": "jest --coverage --coverageReporters=json-summary"
+  },
+  "devDependencies": {
+    "jest": "^29.6.2"
+  }
+}
