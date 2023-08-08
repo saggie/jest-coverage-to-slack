@@ -1,12 +1,8 @@
-# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
-
 name: Submit Jest coverage to Slack
 
 on:
   push:
     branches: [ "main" ]
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -15,3 +11,4 @@ jobs:
     - uses: actions/setup-node@v3
     - run: npm ci
     - run: npm run test:coverage
+    - run: node scripts/submit_coverage_to_slack.mjs "$SLACK_URL"
