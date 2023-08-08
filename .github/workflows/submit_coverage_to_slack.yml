@@ -11,4 +11,7 @@ jobs:
     - uses: actions/setup-node@v3
     - run: npm ci
     - run: npm run test:coverage
-    - run: node scripts/submit_coverage_to_slack.mjs "$SLACK_URL"
+    - name: Submit coverage to Slack
+      env:
+        SLACK_URL: ${{ secrets.SLACK_URL }}
+      run: node scripts/submit_coverage_to_slack.mjs "$SLACK_URL"
